@@ -1,0 +1,293 @@
+:root {
+    /* Cores */
+    --primary-bg: rgba(29, 39, 74, 0.7);
+    --secondary-bg: rgba(45, 59, 107, 0.7);
+    --text-color: #e0e0e0;
+    --dark-text: #2c3e50;
+    --border-color: #fff;
+    --accent-color: #6a82fb;
+
+    /* Tamanhos e Espaços */
+    --container-width: 800px;
+    --border-radius-lg: 20px;
+    --border-radius-sm: 10px;
+    --padding-lg: 2rem;
+    --padding-md: 1.5rem;
+    --gap: 1rem;
+}
+
+/* ---------------------- ESTILOS GLOBAIS ---------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: url('/assets/background.jpg'); /* Imagem de fundo similar */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color);
+}
+
+/* ---------------------- CONTAINER PRINCIPAL ---------------------- */
+.profile-container {
+    width: 90%;
+    max-width: var(--container-width);
+    background-color: var(--primary-bg);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    padding: var(--padding-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+/* ---------------------- CABEÇALHO (HEADER) ---------------------- */
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+header hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: var(--gap) 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.nav-links li {
+    flex: 1;
+    text-align: center;
+}
+
+.locate {
+    display: block;
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.locate:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
+
+/* ---------------------- SEÇÕES DE TÓPICOS (MAIN) ---------------------- */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.topic {
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius-sm);
+    padding: var(--padding-md);
+    border: 1px solid var(--border-color);
+}
+
+.topic-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.topic-header h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.hide-show {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+}
+.topic-content {
+    padding: 20px;
+    gap: 10px;
+}
+
+.topic-content > .links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.topic-content h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.topic-content a {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    padding-left: 20px; /* Para simular a indentação da imagem */
+    text-decoration: none;
+    color: white;
+}
+
+.links a {
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius-lg);
+    width: auto;
+    gap: 10px;
+    height: 30%;
+    border: 2px white solid;
+    padding: 10px;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.topic-content a:hover {
+    color: yellow;
+    border-color: yellow;
+}
+
+a img {
+    width: 24px;
+    height: 24px;
+}
+
+.topic-content hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: var(--gap) 0;
+}
+
+/* ---------------------- ESTILIZAÇÃO DOS PARÁGRAFOS ITERATIVOS ---------------------- */
+.paragrafo-iterativo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    width: 40%;
+}
+
+.paragrafo-iterativo img {
+    height: 24px;
+    width: 24px;
+    transition: all 0.5s ease;
+
+}
+
+.paragrafo-iterativo:hover {
+    color: yellow;
+}
+
+.paragrafo-iterativo:hover img{
+    animation: shake 1s infinite;
+}
+
+@keyframes shake {
+    0%  {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(25deg);
+    }
+    100%  {
+        transform: rotate(0deg);
+    }
+}
+.hover-text {
+    position: absolute;
+    left: 100%; /* Posiciona à direita do texto */
+    padding: 5px 10px;
+    background-color: var(--dark-text);
+    color: var(--text-color);
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none; /* Garante que o span não interfira no hover */
+    z-index: 10;
+}
+
+.paragrafo-iterativo:hover .hover-text {
+    opacity: 1;
+}
+
+/* ---------------------- RODAPÉ (FOOTER) ---------------------- */
+footer {
+    text-align: center;
+    padding-top: var(--gap);
+}
+
+/* ---------------------- RESPONSIVIDADE ---------------------- */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 1rem;
+        width: 95%;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .locate {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    header > h1 {
+        font-size: 20px;
+    }
+
+    .topic-content {
+        padding: 0px;
+        padding-top: 3px ;
+}
+}
