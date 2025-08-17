@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const carousel = document.querySelector('.info-carousel');
+            const items = carousel.querySelectorAll('.item-carousel');
+            let currentIndex = 0;
+
+            function showNextItem() {
+                // Esconde todos os itens
+                items.forEach(item => {
+                    item.style.display = 'none';
+                });
+
+                // Mostra o item atual
+                items[currentIndex].style.display = 'block';
+
+                // Atualiza o índice para o próximo item
+                currentIndex = (currentIndex + 1) % items.length;
+            }
+
+            // Chama a função de exibição imediatamente
+            showNextItem();
+
+            // Inicia a troca automática a cada 3 segundos (3000 milissegundos)
+            setInterval(showNextItem, 3000);
+        });
+    </script>
     <title>Samuel Fernando</title>
 </head>
 <body>
@@ -49,22 +75,26 @@
                     <p>Construção de Interface de Programação de Aplicações (API)</p>
                     <hr>
                     <h3>linguagens que eu domino</h3>
-                    <a href="/python.html" class="paragrafo-iterativo">
-                        <img src="/assets/python-svgrepo-com.svg" alt="Ícone Python">Python 
-                        <span class="hover-text">Clique para saber mais</span>
-                    </a>
-                    <a href="/html-css.html" class="paragrafo-iterativo">
-                        <img src="/assets/html-5-svgrepo-com.svg" alt="Ícone HTML">Html 
-                        <span class="hover-text">Clique para saber mais</span>
-                    </a>
-                    <a href="/html-css.html" class="paragrafo-iterativo">
-                        <img src="/assets/css-3-svgrepo-com.svg" alt="Ícone CSS">Css
-                        <span class="hover-text">Clique para saber mais</span>
-                    </a>
-                    <a href="/html-css.html" class="paragrafo-iterativo">
-                        <img src="/assets/js-svgrepo-com.svg" alt="Ícone JavaScript">JavaScript
-                        <span class="hover-text">Clique para saber mais</span>
-                    </a>
+                    <div class="info-carousel">
+                        <section class="item-carousel">   
+                            <div class="item-tittle">
+                                <img src="/assets/python-svgrepo-com.svg" alt="">
+                                <h1>Python</h1>
+                            </div>
+                            <hr>
+                            <a href="/python.html">Veja mais sobre</a>
+                        </section>
+                        <section class="item-carousel">   
+                            <div class="item-tittle">
+                                <img src="/assets/html-5-svgrepo-com.svg" alt="">
+                                <img src="/assets/css-3-svgrepo-com.svg" alt="">
+                                <img src="/assets/js-svgrepo-com.svg" alt="">
+                                <h1>Html, CSS e js</h1>
+                            </div>
+                            <hr>
+                            <a href="/html-css.html">Veja mais sobre</a>
+                        </section>
+                    </div>
                     <hr>
                     <div class="links">
                         <a href="https://github.com/samuel-fernando-fiacadori"><img src="/assets/github-142-svgrepo-com.svg" alt="">Veja meus trabalhos em GitHub</a>
@@ -89,5 +119,6 @@
         <footer>
             </footer>
     </div>
+
 </body>
 </html>

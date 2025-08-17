@@ -167,6 +167,95 @@ main {
     color: white;
 }
 
+.topic-content .info-carousel {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    gap: 10rem;
+    padding: 0px 10px;
+}
+
+
+/*.info-carousel::scroll-button(right), .info-carousel::scroll-button(left) {
+    content: ">";
+    border: none;
+    background-color: #aa9b139a;
+    color: black;
+    font-family: Consolas;
+    font-size: 3rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding-bottom: .1em;
+    transition: background-color 0.3s ease-in;
+    cursor: pointer;
+    position: fixed;
+    position-anchor: --courousel;
+    position-area: right center;
+    transform: translateX(-50%);
+}
+
+.info-carousel::scroll-button(left):hover, .info-carousel::scroll-button(right):hover {
+    background-color: yellow;
+}
+
+.info-carousel::scroll-button(right):disabled, .info-carousel::scroll-button(left):disabled {
+    opacity: 0.5;
+    background-color: #535619;
+    cursor: auto;
+}
+
+.info-carousel::scroll-button(left) {
+    content: "<";
+    position-area: left center;
+    transform: translateX(50%);
+} */
+
+.info-carousel .item-carousel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0% 100%;
+    padding: 10px 0px;
+    font-family: monospace;
+    scroll-snap-align: center;
+    gap: 0px;
+
+}
+
+.item-carousel .item-tittle {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: start;
+    border-right: 2px white solid;
+    padding-right: 10px;
+}
+ 
+.item-carousel img{
+    width: 60px;
+    height: 60px;
+    animation: shake 1s infinite;
+}
+
+.item-carousel h1 {
+    font-size: 30px;
+}
+
+.item-carousel a {
+    width: 100%;
+    height: 60%;
+    border-radius: var(--border-radius-lg);
+    border: 2px var(--border-color) solid;
+    text-align: center;
+}
+
 .links a {
     color: white;
     text-decoration: none;
