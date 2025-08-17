@@ -507,6 +507,9 @@ footer {
   .profile-container__header h1 {
     font-size: 2rem;
   }
+  .item-tittle {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 500px) {
