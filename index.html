@@ -6,28 +6,43 @@
     <link rel="stylesheet" href="/styles.css">
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const carousel = document.querySelector('.info-carousel');
-            const items = carousel.querySelectorAll('.item-carousel');
-            let currentIndex = 0;
+              const carousel = document.querySelector('.info-carousel');
+              const items = document.querySelectorAll('.item-carousel');
 
-            function showNextItem() {
-                // Esconde todos os itens
+              function updateActiveItem() {
+                let center = carousel.scrollLeft + carousel.offsetWidth / 2;
+            
+                let closest = null;
+                let closestDistance = Infinity;
+            
                 items.forEach(item => {
-                    item.style.display = 'none';
+                  let itemCenter = item.offsetLeft + item.offsetWidth / 2;
+                  let distance = Math.abs(center - itemCenter);
+                
+                  if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closest = item;
+                  }
                 });
+            
+                // Remove active de todos
+                items.forEach(item => item.classList.remove('active'));
+            
+                // Adiciona active só no mais próximo do centro
+                if (closest) {
+                  closest.classList.add('active');
+                }
+              }
+          
+              // Atualiza sempre que rolar
+              carousel.addEventListener('scroll', () => {
+                requestAnimationFrame(updateActiveItem);
+              });
+          
+              // Chama no carregamento inicial também
+              updateActiveItem();
+          
 
-                // Mostra o item atual
-                items[currentIndex].style.display = 'block';
-
-                // Atualiza o índice para o próximo item
-                currentIndex = (currentIndex + 1) % items.length;
-            }
-
-            // Chama a função de exibição imediatamente
-            showNextItem();
-
-            // Inicia a troca automática a cada 3 segundos (3000 milissegundos)
-            setInterval(showNextItem, 3000);
         });
     </script>
     <title>Samuel Fernando</title>
@@ -82,6 +97,11 @@
                                 <h1>Python</h1>
                             </div>
                             <hr>
+                            <div class="item-content">
+                                <img src="/assets/django-svgrepo-com.svg" alt="">
+                                <img src="/assets/flask-svgrepo-com.svg" alt="">
+                            </div>
+                            <hr>
                             <a href="/python.html">Veja mais sobre</a>
                         </section>
                         <section class="item-carousel">   
@@ -90,6 +110,10 @@
                                 <img src="/assets/css-3-svgrepo-com.svg" alt="">
                                 <img src="/assets/js-svgrepo-com.svg" alt="">
                                 <h1>Html, CSS e js</h1>
+                            </div>
+                            <hr>
+                            <div class="item-content">
+                                <h2>Não utilizo nenhuma bíblioteca externa</h2>
                             </div>
                             <hr>
                             <a href="/html-css.html">Veja mais sobre</a>
